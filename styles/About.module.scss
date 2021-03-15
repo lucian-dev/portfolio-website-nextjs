@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.content {
+  .info {
+    column-count: 2;
+    column-gap: 50px;
+  }
+  a {
+    color: $secondaryColorLt;
+    text-decoration: underline;
+    transition: all .3s ease-in-out;
+  }
+  a:hover {
+    color: $primaryColorLt;
+  }
+  p:not(:last-of-type) {
+    margin-bottom: 25px;
+  }
+  @media (max-width: 768px) {
+    column-count: 1;
+    column-gap: 25px;
+  }
+}

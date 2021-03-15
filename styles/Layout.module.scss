@@ -1,0 +1,36 @@
+@import "/styles/variables.scss";
+
+.mainWrapper {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mainSection {
+  position: relative;
+  margin: 15px;
+  height: calc(100vh - 30px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 5px;
+  box-shadow: $boxShadow;
+  background-color: $wrapperColor;
+  @media (min-width: 992px) {
+    margin: 15px 15px 15px 280px;
+  }
+}
+
+.displayContent {
+  position: relative;
+  width: 100%;
+  padding: 50px 35px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}

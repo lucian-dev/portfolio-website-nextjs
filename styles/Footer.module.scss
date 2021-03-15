@@ -1,0 +1,14 @@
+@import "/styles/variables.scss";
+
+.mainFooter {
+  padding: 15px;
+  margin: 0 15px 15px 15px;
+  text-align: center;
+  font-size: $sm-fontSize;
+  line-height: 1;
+  border-radius: 5px;
+  background-color: $wrapperColor;
+  @media (min-width: 992px) {
+    margin: 0 15px 15px 280px;
+  }
+}

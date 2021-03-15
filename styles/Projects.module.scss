@@ -1,0 +1,78 @@
+@import "./variables.scss";
+
+.gridProjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+  gap: 25px;
+}
+
+.projectCard {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: $boxShadow;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: $boxShadowAlt;
+  }
+  &:hover .projectInfo h4 {
+    color: $secondaryColorLt;
+  }
+}
+
+.projectImage {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.projectInfo {
+  padding: 25px 15px;
+  background: $backgroundColorGrad;
+}
+
+.projectCategory {
+  display: inline-block;
+  font-size: $sm-fontSize;
+  line-height: 1;
+  color: $secondaryColorLt;
+  &::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: $secondaryColorLt;
+    margin: 5px 0 2px;
+  }
+}
+
+.projectView {
+  display: flex;
+  align-items: center;
+  font-size: $sm-fontSize;
+  line-height: 1;
+  color: $secondaryColorLt;
+  margin-top: 25px;
+  transition: all 0.3s ease-in-out;
+  span {
+    padding-left: 5px;
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 1px;
+    align-self: flex-end;
+    background-color: $secondaryColorLt;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    color: $primaryColorLt;
+  }
+  &:hover::after {
+    width: 25px;
+    background-color: $primaryColorLt;
+  }
+}
