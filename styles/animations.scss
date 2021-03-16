@@ -6,3 +6,12 @@
     background-position: top center;
   }
 }
+
+@keyframes thAnim {
+  from {
+    object-position: top;
+  }
+  to {
+    object-position: bottom;
+  }
+}

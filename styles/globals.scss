@@ -39,25 +39,35 @@ a {
 }
 
 a.btn {
+  position: relative;
   display: inline-block;
   font-family: $poppins;
   font-size: $l-fontSize;
   line-height: 1;
   color: $secondaryColorLt;
-  padding: 10px 15px;
-  border-radius: 10px;
   outline: none;
-  border: none;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 1px;
-  background-color: #ffffff;
   cursor: pointer;
-  box-shadow: $boxShadow;
   transition: all 0.3s ease-in-out;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid $secondaryColorLt;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform .3s cubic-bezier(.65, .05, .36, 1)
+  }
   &:hover {
-    background-color: $secondaryColorLt;
-    color: #ffffff;
+    color: $primaryColorLt;
+    &::after {
+      transform-origin: left;
+      transform: scaleX(0);
+    }
   }
 }
 
@@ -85,6 +95,10 @@ ul {
 
 .textCenter {
   text-align: center;
+}
+
+.btnBottom {
+  margin-top: 50px;
 }
 
 h1,

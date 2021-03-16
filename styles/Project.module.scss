@@ -13,7 +13,7 @@
     display: block;
     font-family: $poppins;
     font-weight: bold;
-    color: #fff;
+    color: $primaryColorLt;
   }
   span:not(:first-of-type) {
     margin-top: 15px;

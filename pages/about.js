@@ -3,12 +3,12 @@ import stylesAbout from './../styles/About.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
 import {motion} from 'framer-motion'
-import LastProjects from '../components/LastProjects'
+import ProjectCard from '../components/ProjectCard'
 
 export const getStaticProps = async () => {
 
   const res = await fetch('http://lucian-yabu.dev/wp-json/wp/v2/pages/?slug=about')
-  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=3')
+  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
   const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
 
   const data = await res.json()
@@ -44,17 +44,23 @@ const About = ({about, projects, testimonials}) => {
               ))}
             </div>
           </div>
-          <div>
-            <h1>Last projects...</h1>
-            {projects.map(project => (
-              <LastProjects
-                key={project.id}
-                item={project}
-              />
-            ))}
+          <div className={stylesLayout.lastProjects}>
+            <div className="mainTitle">
+              <h2>Last <span>projects...</span></h2>
+            </div>
+            <div className={stylesLayout.projectsGrid}>
+              {projects.map(project => (
+                <ProjectCard
+                  key={project.id}
+                  item={project}
+                />
+              ))}
+            </div>
           </div>
-          <div>
-            <h1>They say...</h1>
+          <div className={stylesLayout.testimonials}>
+            <div className="mainTitle">
+              <h2>They <span>say...</span></h2>
+            </div>
             <Swiper
               slidesPerView={2}
               navigation

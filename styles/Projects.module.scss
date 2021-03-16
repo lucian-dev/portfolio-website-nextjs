@@ -1,36 +1,105 @@
 @import "./variables.scss";
+@import "../styles/animations.scss";
 
-.gridProjects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-  gap: 25px;
+.lpWrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.projectCard {
-  display: block;
-  border-radius: 10px;
+.lpLink {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    .lpInfo {
+      opacity: 1;
+    }
+    .lpImgSm {
+      transform: translateX(0px);
+    }
+    .category {
+      opacity: 1;
+    }
+  }
+}
+
+.lpImgBig,
+.lpImgSm {
+  position: relative;
+  border-top: 16px solid $bodyColor;
+  border-bottom: 16px solid $bodyColor;
+  border-left: 8px solid $bodyColor;
+  border-right: 8px solid $bodyColor;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: $boxShadow;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: $boxShadowAlt;
-  }
-  &:hover .projectInfo h4 {
-    color: $secondaryColorLt;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-.projectImage {
-  display: block;
-  width: 100%;
+.lpImgBig {
+  max-width: 400px;
   height: 300px;
-  object-fit: cover;
-  object-position: top;
+  img {
+    object-position: top;
+    animation-name: thAnim;
+    animation-duration: 40s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+  }
 }
 
-.projectInfo {
-  padding: 25px 15px;
-  background: $backgroundColorGrad;
+.lpInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparentize($color: $wrapperColor, $amount: 0.4);
+  z-index: 22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: all .4s ease-in-out;
+  svg {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 25px;
+    stroke: $secondaryColorLt;
+  }
+}
+
+.lpImgSm {
+  max-width: 125px;
+  height: 250px;
+  transform: translateX(-35px);
+  transition: all .5s ease-in-out;
+}
+
+.category {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $poppins;
+  font-size: $sm-fontSize;
+  font-weight: 700;
+  color: $secondaryColorLt;
+  background: transparentize($color: $wrapperColor, $amount: 0.4);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all .6s ease-in-out
 }
 
 .projectCategory {
@@ -45,34 +114,5 @@
     height: 1px;
     background-color: $secondaryColorLt;
     margin: 5px 0 2px;
-  }
-}
-
-.projectView {
-  display: flex;
-  align-items: center;
-  font-size: $sm-fontSize;
-  line-height: 1;
-  color: $secondaryColorLt;
-  margin-top: 25px;
-  transition: all 0.3s ease-in-out;
-  span {
-    padding-left: 5px;
-  }
-  &::after {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 1px;
-    align-self: flex-end;
-    background-color: $secondaryColorLt;
-    transition: all 0.3s ease-in-out;
-  }
-  &:hover {
-    color: $primaryColorLt;
-  }
-  &:hover::after {
-    width: 25px;
-    background-color: $primaryColorLt;
   }
 }

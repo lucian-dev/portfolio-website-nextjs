@@ -1,9 +1,5 @@
 @import "../styles/variables.scss";
 
-.testimonials {
-  margin-top: 50px;
-}
-
 .testimonialWrapper {
   background: $backgroundColorGrad;
   box-shadow: $boxShadow;
@@ -49,6 +45,6 @@
     transition: all 0.3s ease-in-out;
   }
   a:hover {
-    color: var(--primary-color);
+    color: $primaryColorLt;
   }
 }

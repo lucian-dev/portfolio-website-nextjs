@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
 import { motion } from 'framer-motion'
-import LastProjects from '../components/LastProjects'
+import ProjectCard from '../components/ProjectCard'
 
 export const getStaticProps = async () => {
 
   const res = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/pages/?slug=home')
-  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=3')
+  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
   const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
 
   const data = await res.json()
@@ -31,7 +31,6 @@ const Home = ({home, projects, testimonials}) => {
         transition={{type: "spring", bounce: 0.6, duration: 0.5, damping: 14}}
         exit={{opacity: 0}}
       >
-        {console.log(testimonials)}
         <div className={stylesLayout.displayContent}>
           <div className={stylesLayout.container}>
             {home.map(item => (
@@ -56,27 +55,32 @@ const Home = ({home, projects, testimonials}) => {
                 </div>
               </div>
             ))}
-            <div>
-              <h1>Last projects...</h1>
-              {projects.map(project => (
-                <LastProjects
-                  key={project.id}
-                  item={project}
-                />
-              ))}
+            <div className={stylesLayout.lastProjects}>
+              <div className="mainTitle">
+                <h2>Last <span>projects...</span></h2>
+              </div>
+              <div className={stylesLayout.projectsGrid}>
+                {projects.map(project => (
+                  <ProjectCard
+                    key={project.id}
+                    item={project}
+                  />
+                ))}
+              </div>
             </div>
-            <div>
-              <h1>They say...</h1>
+            <div  className={stylesLayout.testimonials}>
+              <div className="mainTitle">
+                <h2>They <span>say...</span></h2>
+              </div>
               <Swiper
                 slidesPerView={2}
                 navigation
                 pagination
                 spaceBetween={50}
               >
-                {testimonials.acf.loop_testimonials.map(testimonial => (
-                  <SwiperSlide key={testimonial.id}>
+                {testimonials.acf.loop_testimonials.map((testimonial, id) => (
+                  <SwiperSlide key={id}>
                     <Testimonials
-                      key={testimonial.id}
                       item={testimonial}
                     />
                   </SwiperSlide>

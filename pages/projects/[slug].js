@@ -59,23 +59,24 @@ const ProjectPage = ({project, testimonials}) => {
                     </>
                   )}
                   <a href={item.acf.project_url} className={`btn ${stylesProject.linkProject}`} target="_blank" rel="noreferrer">Visit website</a>
-                <div className="btnBottom">
-                  <Link href="/projects"><a className="btnS">...back to All projects</a></Link>
-                </div>
-              </div>
-              <div className={stylesProject.projectImages}>
-                <div className={stylesProject.imgFrontWrapper}>
-                  <img src="../phone.png" alt={`Project-${item.title.rendered}`} />
-                  <div className={stylesProject.imgFront} style={{backgroundImage: `url(${item._embedded['wp:featuredmedia'][0].source_url})`}}>
+                  <div className="btnBottom">
+                    <Link href="/projects"><a className="btnS">...back to All projects</a></Link>
                   </div>
                 </div>
-                <img src={item._embedded['wp:featuredmedia'][0].source_url} className={stylesProject.imgBack} alt={`Project-${item.title.rendered}`} />
+                <div className={stylesProject.projectImages}>
+                  <div className={stylesProject.imgFrontWrapper}>
+                    <img src="../phone.png" alt={`Project-${item.title.rendered}`} />
+                    <div className={stylesProject.imgFront} style={{backgroundImage: `url(${item._embedded['wp:featuredmedia'][0].source_url})`}}></div>
+                  </div>
+                  <img src={item._embedded['wp:featuredmedia'][0].source_url} className={stylesProject.imgBack} alt={`Project-${item.title.rendered}`} />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-          <div>
-            <h1>They say...</h1>
+          ))}
+          <div className={stylesLayout.testimonials}>
+            <div className="mainTitle">
+              <h2>They <span>say...</span></h2>
+            </div>
             <Swiper
               slidesPerView={2}
               navigation

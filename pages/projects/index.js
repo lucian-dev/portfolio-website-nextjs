@@ -1,10 +1,9 @@
 import stylesLayout from '../../styles/Layout.module.scss'
 import stylesProjects from '../../styles/Projects.module.scss'
-import { VscOpenPreview } from 'react-icons/vsc'
-import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Testimonials from '../../components/Testimonials'
 import {motion} from 'framer-motion'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import ProjectCard from '../../components/ProjectCard'
+import Testimonials from '../../components/Testimonials'
 
 export const getStaticProps = async () => {
 
@@ -32,29 +31,21 @@ const Projects = ({projects, testimonials}) => {
         <div className={stylesLayout.container}>
           <div className={stylesProjects.projects}>
             <div className="mainTitle textCenter">
-              <h1>Projects</h1>
+              <h1>Selected <span>projects</span></h1>
             </div>
-            <div className={stylesProjects.gridProjects}>
+            <div className={stylesLayout.projectsGrid}>
               {projects.map(project => (
-                <Link href={'/projects/' + project.slug} key={project.id}>
-                  <a className={stylesProjects.projectCard}>
-                    <img src={project._embedded['wp:featuredmedia'][0].source_url} alt={project.title.rendered} className={stylesProjects.projectImage} loading=
-                    "lazy"/>
-                    <div className={stylesProjects.projectInfo}>
-                      <span className={stylesProjects.projectCategory}>{project._embedded['wp:term'][0][0].name}</span>
-                      <h4>{project.title.rendered}</h4>
-                      <div className={stylesProjects.projectView}>
-                        <VscOpenPreview />
-                        <span>View</span>
-                      </div>
-                    </div>
-                  </a>
-                </Link>
+                <ProjectCard
+                  key={project.id}
+                  item={project}
+                />
               ))}
             </div>
           </div>
-          <div>
-            <h1>They say...</h1>
+          <div className={stylesLayout.testimonials}>
+            <div className="mainTitle">
+              <h2>They <span>say...</span></h2>
+            </div>
             <Swiper
               slidesPerView={2}
               navigation
