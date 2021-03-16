@@ -102,17 +102,6 @@
   transition: all .6s ease-in-out
 }
 
-.projectCategory {
-  display: inline-block;
-  font-size: $sm-fontSize;
-  line-height: 1;
-  color: $secondaryColorLt;
-  &::after {
-    content: "";
-    display: block;
-    width: 25px;
-    height: 1px;
-    background-color: $secondaryColorLt;
-    margin: 5px 0 2px;
-  }
+.projects {
+  border: 1px solid red;
 }

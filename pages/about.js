@@ -1,8 +1,8 @@
 import stylesLayout from './../styles/Layout.module.scss'
 import stylesAbout from './../styles/About.module.scss'
+import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
-import {motion} from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 
 export const getStaticProps = async () => {

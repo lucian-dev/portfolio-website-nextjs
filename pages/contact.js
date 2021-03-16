@@ -1,8 +1,8 @@
 import stylesLayout from './../styles/Layout.module.scss'
 import stylesContact from './../styles/Contact.module.scss'
+import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
-import {motion} from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 
 export const getStaticProps = async () => {
@@ -78,7 +78,7 @@ const Contact = ({projects, testimonials}) => {
             </div>
             <div className={stylesLayout.projectsGrid}>
               {projects.map(project => (
-                <LastProjects
+                <ProjectCard
                   key={project.id}
                   item={project}
                 />
@@ -95,10 +95,9 @@ const Contact = ({projects, testimonials}) => {
                 pagination
                 spaceBetween={50}
               >
-              {testimonials.acf.loop_testimonials.map(testimonial => (
-                <SwiperSlide key={testimonial.id}>
+              {testimonials.acf.loop_testimonials.map((testimonial, id) => (
+                <SwiperSlide key={id}>
                   <Testimonials
-                    key={testimonial.id}
                     item={testimonial}
                   />
                 </SwiperSlide>
