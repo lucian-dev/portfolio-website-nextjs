@@ -32,7 +32,7 @@ const Nav = () => {
           </a>
         </div>
         <div className={navStyles.burger}>
-          <Hamburger toggled={burger} toggle={setBurger} size={26} />
+          <Hamburger toggled={burger} toggle={setBurger} size={26} duration={0.6} rounded label="Show menu" />
         </div>
       </nav>
       <AnimatePresence >
