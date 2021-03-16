@@ -20,7 +20,7 @@
   justify-self: center;
   padding: 15px;
   background: $backgroundColorGrad;
-  box-shadow: $boxShadowAlt;
+  box-shadow: $boxShadow;
   border-radius: 10px;
   h3 {
     margin-bottom: 25px;
@@ -40,7 +40,7 @@
     height: 40px;
     border-radius: 50%;
     box-shadow: $boxShadowAlt;
-    background-color: #fff;
+    background-color: $secondaryColorLt;
     margin-right: 15px;
     display: flex;
     align-items: center;

@@ -8,7 +8,8 @@
   line-height: 1;
   border-radius: 5px;
   background-color: $wrapperColor;
-  @media (min-width: 992px) {
+  box-shadow: $boxShadowAlt;
+  @media (min-width: 1200px) {
     margin: 0 15px 15px 280px;
   }
 }

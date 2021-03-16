@@ -52,14 +52,13 @@ const Projects = ({projects, testimonials}) => {
               pagination
               spaceBetween={50}
             >
-              {testimonials.acf.loop_testimonials.map(testimonial => (
-                <SwiperSlide key={testimonial.id}>
-                  <Testimonials
-                    key={testimonial.id}
-                    item={testimonial}
-                  />
-                </SwiperSlide>
-              ))}
+            {testimonials.acf.loop_testimonials.map((testimonial, id) => (
+              <SwiperSlide key={id}>
+                <Testimonials
+                  item={testimonial}
+                />
+              </SwiperSlide>
+            ))}
             </Swiper>
           </div>
         </div>

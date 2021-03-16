@@ -1,9 +1,18 @@
 @import '../styles/variables.scss';
 @import '../styles/animations.scss';
 
+.project h1::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background-color: $secondaryColorLt;
+  margin-right: 5px;
+}
+
 .gridProject {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr));
   gap: 15px;
   align-items: center;
 }
@@ -32,7 +41,7 @@
   display: block;
   position: absolute;
   top: 50%;
-  width: 450px;
+  width: 525px;
   height: 650px;
   right: 0;
   transform: matrix3d(
@@ -54,37 +63,29 @@
       1
     )
     translate(-10px, -50%);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: $boxShadowAlt;
   z-index: 1;
 }
 
-.imgFrontWrapper {
+.imgFront {
   position: absolute;
   left: 0;
   top: 50%;
-  width: 175px;
-  height: 350px;
+  max-width: 175px;
+  height: 325px;
+  border-top: 16px solid $bodyColor;
+  border-bottom: 16px solid $bodyColor;
+  border-left: 8px solid $bodyColor;
+  border-right: 8px solid $bodyColor;
+  border-radius: 20px;
+  box-shadow: $boxShadowAlt;
   transform: translate(25px, -50%);
+  overflow: hidden;
   z-index: 2;
   img {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: transparent;
-    box-shadow: -10px 10px 15px 10px rgba(125, 125, 125, 0.09);
+    object-fit: cover;
   }
-}
-
-.imgFront {
-  position: absolute;
-  top: 13px;
-  left: 3px;
-  background-size: 100%;
-  width: 96%;
-  height: 92.5%;
-  border-radius: 10.5px;
-  animation-name: updown;
-  animation-duration: 10s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
 }

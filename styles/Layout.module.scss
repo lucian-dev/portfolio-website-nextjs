@@ -12,10 +12,10 @@
   height: calc(100vh - 30px);
   overflow-x: hidden;
   overflow-y: auto;
-  border-radius: 5px;
-  box-shadow: $boxShadow;
+  border-radius: 10px;
+  box-shadow: $boxShadowAlt;
   background-color: $wrapperColor;
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     margin: 15px 15px 15px 280px;
   }
 }
@@ -23,7 +23,10 @@
 .displayContent {
   position: relative;
   width: 100%;
-  padding: 50px 35px;
+  padding: 50px 0;
+  @media (min-width: 1200px) {
+    padding: 50px 35px;
+  }
 }
 
 .container {

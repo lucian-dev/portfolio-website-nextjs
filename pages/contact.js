@@ -66,7 +66,7 @@ const Contact = ({projects, testimonials}) => {
                 <div className={stylesContact.formRowFull}>
                   <div data-netlify-recaptcha="true"></div>  
                 </div>
-                <div className="btn-bottom">
+                <div className="btnBottom textCenter">
                   <button type="submit" value="Submit" className={stylesContact.submit}>Send Message</button>
                 </div>
               </form>

@@ -33,7 +33,6 @@
   border-right: 8px solid $bodyColor;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: $boxShadow;
   img {
     display: block;
     width: 100%;
@@ -45,6 +44,7 @@
 .lpImgBig {
   max-width: 400px;
   height: 300px;
+  box-shadow: $boxShadowAlt;
   img {
     object-position: top;
     animation-name: thAnim;
@@ -80,6 +80,7 @@
   max-width: 125px;
   height: 250px;
   transform: translateX(-35px);
+  box-shadow: $boxShadow;
   transition: all .5s ease-in-out;
 }
 
@@ -103,5 +104,5 @@
 }
 
 .projects {
-  border: 1px solid red;
+  position: relative;
 }

@@ -67,10 +67,9 @@ const About = ({about, projects, testimonials}) => {
               pagination
               spaceBetween={50}
             >
-              {testimonials.acf.loop_testimonials.map(testimonial => (
-                <SwiperSlide key={testimonial.id}>
+              {testimonials.acf.loop_testimonials.map((testimonial, id) => (
+                <SwiperSlide key={id}>
                   <Testimonials
-                    key={testimonial.id}
                     item={testimonial}
                   />
                 </SwiperSlide>

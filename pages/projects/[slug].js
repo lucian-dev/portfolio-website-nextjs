@@ -40,7 +40,7 @@ const ProjectPage = ({project, testimonials}) => {
       <div className={stylesLayout.displayContent}>
         <div className={stylesLayout.container}>
           {project.map(item => (
-            <div className={stylesProject.sectionProject} key={item.id}>
+            <div className={stylesProject.project} key={item.id}>
               <div className="mainTitle">
                 <h1>{item.title.rendered}</h1>
               </div>
@@ -64,9 +64,8 @@ const ProjectPage = ({project, testimonials}) => {
                   </div>
                 </div>
                 <div className={stylesProject.projectImages}>
-                  <div className={stylesProject.imgFrontWrapper}>
-                    <img src="../phone.png" alt={`Project-${item.title.rendered}`} />
-                    <div className={stylesProject.imgFront} style={{backgroundImage: `url(${item._embedded['wp:featuredmedia'][0].source_url})`}}></div>
+                  <div className={stylesProject.imgFront}>
+                    <img src={item._embedded['wp:featuredmedia'][0].source_url} alt={`Project-${item.title.rendered}`} />
                   </div>
                   <img src={item._embedded['wp:featuredmedia'][0].source_url} className={stylesProject.imgBack} alt={`Project-${item.title.rendered}`} />
                 </div>
@@ -83,10 +82,9 @@ const ProjectPage = ({project, testimonials}) => {
               pagination
               spaceBetween={50}
             >
-              {testimonials.acf.loop_testimonials.map(testimonial => (
-                <SwiperSlide key={testimonial.id}>
+              {testimonials.acf.loop_testimonials.map((testimonial, id) => (
+                <SwiperSlide key={id}>
                   <Testimonials
-                    key={testimonial.id}
                     item={testimonial}
                   />
                 </SwiperSlide>
