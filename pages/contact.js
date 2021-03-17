@@ -5,20 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
 import ProjectCard from '../components/ProjectCard'
 
-export const getStaticProps = async () => {
-
-  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
-  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
-
-  const lastProjects = await res2.json()
-  const testimonialsData = await testimonials.json()
-
-  return {
-    props: {projects: lastProjects, testimonials: testimonialsData}
-  }
-
-}
-
 const Contact = ({projects, testimonials}) => {
   return (
     <motion.section className={stylesLayout.mainSection}
@@ -116,3 +102,17 @@ const Contact = ({projects, testimonials}) => {
 }
 
 export default Contact
+
+export const getStaticProps = async () => {
+
+  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
+  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
+
+  const lastProjects = await res2.json()
+  const testimonialsData = await testimonials.json()
+
+  return {
+    props: {projects: lastProjects, testimonials: testimonialsData}
+  }
+
+}

@@ -5,24 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
 import ProjectCard from '../components/ProjectCard'
 
-export const getStaticProps = async () => {
-
-  const res = await fetch('http://lucian-yabu.dev/wp-json/wp/v2/pages/?slug=about')
-  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
-  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
-
-  const data = await res.json()
-  const lastProjects = await res2.json()
-  const testimonialsData = await testimonials.json()
-  
-
-  return {
-    props: {about: data, projects: lastProjects, testimonials: testimonialsData}
-  }
-
-}
-
-
 const About = ({about, projects, testimonials}) => {
   return (
     <motion.section className={stylesLayout.mainSection}
@@ -88,3 +70,20 @@ const About = ({about, projects, testimonials}) => {
 }
 
 export default About
+
+export const getStaticProps = async () => {
+
+  const res = await fetch('http://lucian-yabu.dev/wp-json/wp/v2/pages/?slug=about')
+  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
+  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
+
+  const data = await res.json()
+  const lastProjects = await res2.json()
+  const testimonialsData = await testimonials.json()
+  
+
+  return {
+    props: {about: data, projects: lastProjects, testimonials: testimonialsData}
+  }
+
+}

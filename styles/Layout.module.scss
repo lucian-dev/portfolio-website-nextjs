@@ -54,3 +54,11 @@
   grid-template-columns: repeat(auto-fit, minmax(min(415px, 100%), 1fr));
   gap: 25px;
 }
+
+.page404 {
+  height: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

@@ -5,30 +5,6 @@ import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../../components/Testimonials'
 
-export const getStaticPaths = async () => {
-
-  const res = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed')
-  const projects = await res.json()
-
-  const paths = projects.map((project) => ({
-    params: { slug: project.slug },
-  }))
-
-  return { paths, fallback: false }
-
-}
-
-export const getStaticProps = async ({params}) => {
-
-  const res = await fetch(`https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&slug=${params.slug}`)
-  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
-  const project = await res.json()
-  const testimonialsData = await testimonials.json()
-
-  return { props: { project, testimonials: testimonialsData }}
-
-}
-
 const ProjectPage = ({project, testimonials}) => {
   return (
     <motion.section className={stylesLayout.mainSection}
@@ -103,3 +79,27 @@ const ProjectPage = ({project, testimonials}) => {
 }
 
 export default ProjectPage
+
+export const getStaticProps = async ({params}) => {
+
+  const res = await fetch(`https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&slug=${params.slug}`)
+  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
+  const project = await res.json()
+  const testimonialsData = await testimonials.json()
+
+  return { props: { project, testimonials: testimonialsData }}
+
+}
+
+export const getStaticPaths = async () => {
+
+  const res = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=100')
+  const projects = await res.json()
+
+  const paths = projects.map((project) => ({
+    params: { slug: project.slug },
+  }))
+
+  return { paths, fallback: false }
+
+}

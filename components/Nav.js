@@ -4,31 +4,31 @@ import { useState } from 'react'
 import { Divide as Hamburger } from 'hamburger-react'
 import { AnimatePresence, motion } from 'framer-motion'
 
+const navVariants = {
+  hidden: { opacity: 0, scale: 0},
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: .3,
+      staggerChildren: .5,
+    }
+  }
+}
+
+const linkVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+}
+
 const Nav = () => {
 
   const [ burger, setBurger ] = useState(false) 
 
   const handleClick = () => setBurger(!burger)
-
-  const navVariants = {
-    hidden: { opacity: 0, scale: 0},
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: .3,
-        staggerChildren: .5,
-      }
-    }
-  }
-
-  const linkVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  }
 
   return (
     <>
