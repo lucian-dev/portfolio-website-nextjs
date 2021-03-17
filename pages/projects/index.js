@@ -47,10 +47,15 @@ const Projects = ({projects, testimonials}) => {
               <h2>They <span>say...</span></h2>
             </div>
             <Swiper
-              slidesPerView={2}
+              slidesPerView={1}
               navigation
               pagination
               spaceBetween={50}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2
+                }
+              }}
             >
             {testimonials.acf.loop_testimonials.map((testimonial, id) => (
               <SwiperSlide key={id}>

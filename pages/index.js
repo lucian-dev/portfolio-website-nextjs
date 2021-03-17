@@ -34,7 +34,7 @@ const Home = ({home, projects, testimonials}) => {
         <div className={stylesLayout.displayContent}>
           <div className={stylesLayout.container}>
             {home.map(item => (
-              <div className={`${stylesHome.content} dGrid`} key={item.id}>
+              <div className={stylesHome.content} key={item.id}>
                 <div className={stylesHome.info}>
                   <h1 dangerouslySetInnerHTML={{__html: item.acf.hero_brief.title}}></h1>
                   <div dangerouslySetInnerHTML={{__html: item.acf.hero_brief.sub_title}}></div>
@@ -73,10 +73,15 @@ const Home = ({home, projects, testimonials}) => {
                 <h2>They <span>say...</span></h2>
               </div>
               <Swiper
-                slidesPerView={2}
+                slidesPerView={1}
                 navigation
                 pagination
                 spaceBetween={50}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 2
+                  }
+                }}
               >
                 {testimonials.acf.loop_testimonials.map((testimonial, id) => (
                   <SwiperSlide key={id}>

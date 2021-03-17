@@ -1,8 +1,10 @@
 @import "./variables.scss";
 
 .content {
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr));
   align-items: center;
+  gap: 25px;
 }
 
 .info {
@@ -47,8 +49,8 @@
     justify-content: center;
     img {
       display: block;
-      width: 25px;
-      height: 25px;
+      width: 22px;
+      height: 22px;
     }
   }
 }

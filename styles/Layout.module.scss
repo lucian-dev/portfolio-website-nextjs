@@ -23,7 +23,10 @@
 .displayContent {
   position: relative;
   width: 100%;
-  padding: 50px 0;
+  padding: 75px 0 50px;
+  @media (min-width: 768px) {
+    padding: 50px 0;
+  }
   @media (min-width: 1200px) {
     padding: 50px 35px;
   }
@@ -45,6 +48,6 @@
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(415px, 100%), 1fr));
   gap: 25px;
 }
