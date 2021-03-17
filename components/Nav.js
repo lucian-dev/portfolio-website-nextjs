@@ -10,6 +10,26 @@ const Nav = () => {
 
   const handleClick = () => setBurger(!burger)
 
+  const navVariants = {
+    hidden: { opacity: 0, scale: 0},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: .3,
+        staggerChildren: .5,
+      }
+    }
+  }
+
+  const linkVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  }
+
   return (
     <>
       <nav className={`${navStyles.nav} ${burger ? `${navStyles.activeBurger}` : ''}`}>
@@ -45,12 +65,17 @@ const Nav = () => {
             exit={{x: '-100%', opacity: 0}}
           >
             <motion.div className={navStyles.burgerInner}>
-              <ul className={navStyles.navigationBurger}>
-                <li><Link href='/'><a onClick={handleClick}>Home</a></Link></li>
-                <li><Link href='/about'><a onClick={handleClick}>About</a></Link></li>
-                <li><Link href='/projects'><a onClick={handleClick}>Projects</a></Link></li>
-                <li><Link href='/contact'><a onClick={handleClick}>Contact</a></Link></li>
-              </ul>
+              <motion.ul 
+                className={navStyles.navigationBurger}
+                variants={navVariants}
+                initial='hidden'
+                animate='visible'
+              >
+                <motion.li variants={linkVariants}><Link href='/'><a onClick={handleClick}>Home</a></Link></motion.li>
+                <motion.li variants={linkVariants}><Link href='/about'><a onClick={handleClick}>About</a></Link></motion.li>
+                <motion.li variants={linkVariants}><Link href='/projects'><a onClick={handleClick}>Projects</a></Link></motion.li>
+                <motion.li variants={linkVariants}><Link href='/contact'><a onClick={handleClick}>Contact</a></Link></motion.li>
+              </motion.ul>
             </motion.div>
           </motion.div>
         )}
