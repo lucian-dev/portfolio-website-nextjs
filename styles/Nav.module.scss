@@ -68,7 +68,7 @@
     border-bottom: 1px solid $primaryColorLt;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform .3s cubic-bezier(.65, .05, .36, 1);
+    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   a:hover,
   a.activeLink {
@@ -114,7 +114,7 @@
   z-index: 11111;
   color: $secondaryColorLt;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &:hover {
     color: $primaryColorLt;
   }
@@ -135,20 +135,23 @@
 .burgerMenu {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 98;
   background: transparentize($color: $wrapperColor, $amount: 0.2);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .burgerInner {
-  height: 100%;
-  max-width: 300px;
+  height: 100vh;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $wrapperColor;
   box-shadow: $boxShadowAlt;
+  @media (min-width: 550px) {
+    max-width: 300px;
+  }
 }
 
 .navigationBurger {
