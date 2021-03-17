@@ -8,13 +8,16 @@
 
 .mainSection {
   position: relative;
-  margin: 15px;
+  margin: 5px;
   height: calc(100vh - 30px);
   overflow-x: hidden;
   overflow-y: auto;
   border-radius: 10px;
   box-shadow: $boxShadowAlt;
   background-color: $wrapperColor;
+  @media (min-width: 550px) {
+    margin: 15px;
+  }
   @media (min-width: 1200px) {
     margin: 15px 15px 15px 280px;
   }
