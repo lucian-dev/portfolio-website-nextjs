@@ -1,5 +1,7 @@
+import Head from 'next/head'
 import stylesLayout from '../../styles/Layout.module.scss'
 import stylesProject from '../../styles/Project.module.scss'
+import { API_URL, API_URL_ACF } from '../../utils/urls'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -7,7 +9,13 @@ import Testimonials from '../../components/Testimonials'
 
 const ProjectPage = ({project, testimonials}) => {
   return (
-    <motion.section className={stylesLayout.mainSection}
+    <>
+      <Head>
+        {project[0].title.rendered &&
+          <title>{project[0].title.rendered}</title>
+        }
+      </Head>
+      <motion.section className={stylesLayout.mainSection}
       initial={{x: "-100%", opacity: 0}}
       animate={{x: 0, opacity: 1}}
       transition={{type: "spring", bounce: 0.6, duration: 0.5, damping: 14}}
@@ -75,15 +83,14 @@ const ProjectPage = ({project, testimonials}) => {
         </div>
       </div>
     </motion.section>
+    </>
   )
 }
 
-export default ProjectPage
+export const getStaticProps = async ({params: { slug }}) => {
 
-export const getStaticProps = async ({params}) => {
-
-  const res = await fetch(`https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&slug=${params.slug}`)
-  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
+  const res = await fetch(`${API_URL}/project?_embed&slug=${slug}`)
+  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
   const project = await res.json()
   const testimonialsData = await testimonials.json()
 
@@ -93,7 +100,7 @@ export const getStaticProps = async ({params}) => {
 
 export const getStaticPaths = async () => {
 
-  const res = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=100')
+  const res = await fetch(`${API_URL}/project?_embed&per_page=100`)
   const projects = await res.json()
 
   const paths = projects.map((project) => ({
@@ -103,3 +110,5 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 
 }
+
+export default ProjectPage

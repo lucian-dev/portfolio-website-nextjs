@@ -1,5 +1,7 @@
+import Head from 'next/head'
 import stylesLayout from './../styles/Layout.module.scss'
 import stylesContact from './../styles/Contact.module.scss'
+import { API_URL, API_URL_ACF } from '../utils/urls'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '../components/Testimonials'
@@ -7,7 +9,11 @@ import ProjectCard from '../components/ProjectCard'
 
 const Contact = ({projects, testimonials}) => {
   return (
-    <motion.section className={stylesLayout.mainSection}
+    <>
+      <Head>
+        <title>Contact - Lucian-DEV</title>
+      </Head>
+      <motion.section className={stylesLayout.mainSection}
       initial={{x: "-100%", opacity: 0}}
       animate={{x: 0, opacity: 1}}
       transition={{type: "spring", bounce: 0.6, duration: 0.5, damping: 14}}
@@ -98,6 +104,7 @@ const Contact = ({projects, testimonials}) => {
         </div>
       </div>
     </motion.section>
+    </>
   )
 }
 
@@ -105,8 +112,8 @@ export default Contact
 
 export const getStaticProps = async () => {
 
-  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
-  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
+  const res2 = await fetch(`${API_URL}/project?_embed&per_page=2`)
+  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
 
   const lastProjects = await res2.json()
   const testimonialsData = await testimonials.json()

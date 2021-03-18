@@ -1,5 +1,6 @@
 import stylesLayout from './../styles/Layout.module.scss'
 import stylesHome from './../styles/Home.module.scss'
+import { API_URL, API_URL_ACF } from '../utils/urls'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -85,9 +86,9 @@ export default Home
 
 export const getStaticProps = async () => {
 
-  const res = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/pages/?slug=home')
-  const res2 = await fetch('https://lucian-yabu.dev/wp-json/wp/v2/project?_embed&per_page=2')
-  const testimonials = await fetch('https://lucian-yabu.dev/wp-json/acf/v3/options/options')
+  const res = await fetch(`${API_URL}/pages/?slug=home`)
+  const res2 = await fetch(`${API_URL}/project?_embed&per_page=2`)
+  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
 
   const data = await res.json()
   const lastProjects = await res2.json()

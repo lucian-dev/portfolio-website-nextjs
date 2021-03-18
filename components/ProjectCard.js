@@ -6,7 +6,7 @@ const ProjectCard = ({item}) => {
   return (
     <div className={stylesProjects.lpCard}>
       <div className={stylesProjects.lpWrapper}>
-        <Link href={'/projects/' + item.slug}>
+        <Link href={`/projects/${item.slug}`}>
           <a className={stylesProjects.lpLink}>
             <div className={stylesProjects.lpImgBig}>
               <img src={item._embedded['wp:featuredmedia'][0].source_url} alt={item.title.rendered} loading="lazy"/>
