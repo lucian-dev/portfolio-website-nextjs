@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import stylesLayout from '../../styles/Layout.module.scss'
-import stylesProject from '../../styles/Project.module.scss'
-import { API_URL, API_URL_ACF } from '../../utils/urls'
+import stylesLayout from '@styles/Layout.module.scss'
+import stylesProject from '@styles/Project.module.scss'
+import { API_URL, API_URL_ACF } from '@utils/urls'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Testimonials from '../../components/Testimonials'
+import Testimonials from '@components/Testimonials'
 
 const ProjectPage = ({project, testimonials}) => {
   return (

@@ -1,4 +1,4 @@
-import stylesLayout from './../styles/Layout.module.scss'
+import stylesLayout from '@styles/Layout.module.scss'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
