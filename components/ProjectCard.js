@@ -1,4 +1,4 @@
-import stylesProjects from './../styles/Projects.module.scss'
+import stylesProjects from '@styles/Projects.module.scss'
 import Link from 'next/link'
 import { IoLinkOutline } from 'react-icons/io5'
 

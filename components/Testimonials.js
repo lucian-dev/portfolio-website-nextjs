@@ -1,5 +1,5 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper'
-import styles from './../styles/Testimonials.module.scss'
+import styles from '@styles/Testimonials.module.scss'
 
 SwiperCore.use([Navigation, Pagination])
 

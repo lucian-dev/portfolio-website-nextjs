@@ -1,6 +1,6 @@
-import styles from '../styles/Layout.module.scss'
-import Footer from './Footer'
-import Nav from './Nav'
+import styles from '@styles/Layout.module.scss'
+import Footer from '@components/Footer'
+import Nav from '@components/Nav'
 
 const Layout = ({ children }) => {
 

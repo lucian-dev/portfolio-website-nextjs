@@ -1,5 +1,5 @@
-import navStyles from '../styles/Nav.module.scss'
-import Link from './Link'
+import navStyles from '@styles/Nav.module.scss'
+import Link from '@components/Link'
 import { useState } from 'react'
 import { Divide as Hamburger } from 'hamburger-react'
 import { AnimatePresence, motion } from 'framer-motion'
