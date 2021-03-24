@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesAbout from '@styles/About.module.scss'
-import { API_URL, API_URL_ACF } from '@utils/urls'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '@components/Testimonials'
@@ -21,7 +20,6 @@ const About = ({about, projects, testimonials}) => {
       transition={{type: "spring", bounce: 0.6, duration: 0.5, damping: 14}}
       exit={{opacity: 0}}
     >
-      {console.log(about)}
       <div className={stylesLayout.displayContent}>
         <div className={stylesLayout.container}>
           <div className={stylesAbout.aboutSection}>
@@ -83,9 +81,9 @@ export default About
 
 export const getStaticProps = async () => {
 
-  const res = await fetch(`${API_URL}/pages/?slug=about`)
-  const res2 = await fetch(`${API_URL}/project?_embed&per_page=2`)
-  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
+  const res = await fetch(`${process.env.WP_API_URL}/pages/?slug=about`)
+  const res2 = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
+  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
 
   const data = await res.json()
   const lastProjects = await res2.json()

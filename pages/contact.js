@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesContact from '@styles/Contact.module.scss'
-import { API_URL, API_URL_ACF } from '@utils/urls'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '@components/Testimonials'
@@ -112,8 +111,8 @@ export default Contact
 
 export const getStaticProps = async () => {
 
-  const res2 = await fetch(`${API_URL}/project?_embed&per_page=2`)
-  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
+  const res2 = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
+  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
 
   const lastProjects = await res2.json()
   const testimonialsData = await testimonials.json()

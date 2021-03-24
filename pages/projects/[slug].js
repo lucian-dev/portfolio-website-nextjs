@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesProject from '@styles/Project.module.scss'
-import { API_URL, API_URL_ACF } from '@utils/urls'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -89,8 +88,8 @@ const ProjectPage = ({project, testimonials}) => {
 
 export const getStaticProps = async ({params: { slug }}) => {
 
-  const res = await fetch(`${API_URL}/project?_embed&slug=${slug}`)
-  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
+  const res = await fetch(`${process.env.WP_API_URL}/project?_embed&slug=${slug}`)
+  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
   const project = await res.json()
   const testimonialsData = await testimonials.json()
 
@@ -100,7 +99,7 @@ export const getStaticProps = async ({params: { slug }}) => {
 
 export const getStaticPaths = async () => {
 
-  const res = await fetch(`${API_URL}/project?_embed&per_page=100`)
+  const res = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=100`)
   const projects = await res.json()
 
   const paths = projects.map((project) => ({

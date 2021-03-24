@@ -1,6 +1,5 @@
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesHome from '@styles/Home.module.scss'
-import { API_URL, API_URL_ACF } from '@utils/urls'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -8,6 +7,7 @@ import ProjectCard from '@components/ProjectCard'
 import Testimonials from '@components/Testimonials'
 
 const Home = ({home, projects, testimonials}) => {
+
   return (
       <motion.section className={stylesLayout.mainSection}
         initial={{x: "-100%", opacity: 0}}
@@ -86,9 +86,9 @@ export default Home
 
 export const getStaticProps = async () => {
 
-  const res = await fetch(`${API_URL}/pages/?slug=home`)
-  const res2 = await fetch(`${API_URL}/project?_embed&per_page=2`)
-  const testimonials = await fetch(`${API_URL_ACF}/options/options`)
+  const res = await fetch(`${process.env.WP_API_URL}/pages/?slug=home`)
+  const res2 = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
+  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
 
   const data = await res.json()
   const lastProjects = await res2.json()
