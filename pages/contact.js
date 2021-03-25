@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '@components/Testimonials'
 import ProjectCard from '@components/ProjectCard'
 
-const Contact = ({projects, testimonials}) => {
+const Contact = ({lastProjects, testimonials}) => {
   return (
     <>
       <Head>
@@ -68,7 +68,7 @@ const Contact = ({projects, testimonials}) => {
               <h2>Last <span>projects...</span></h2>
             </div>
             <div className={stylesLayout.projectsGrid}>
-              {projects.map(project => (
+              {lastProjects.map(project => (
                 <ProjectCard
                   key={project.id}
                   item={project}
@@ -111,14 +111,14 @@ export default Contact
 
 export const getStaticProps = async () => {
 
-  const res2 = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
-  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
+  const resLastProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
+  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
 
-  const lastProjects = await res2.json()
-  const testimonialsData = await testimonials.json()
+  const lastProjects = await resLastProjects.json()
+  const testimonials = await resTestimonials.json()
 
   return {
-    props: {projects: lastProjects, testimonials: testimonialsData}
+    props: {lastProjects, testimonials}
   }
 
 }

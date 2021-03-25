@@ -88,19 +88,19 @@ const ProjectPage = ({project, testimonials}) => {
 
 export const getStaticProps = async ({params: { slug }}) => {
 
-  const res = await fetch(`${process.env.WP_API_URL}/project?_embed&slug=${slug}`)
-  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
-  const project = await res.json()
-  const testimonialsData = await testimonials.json()
+  const resProject = await fetch(`${process.env.WP_API_URL}/project?_embed&slug=${slug}`)
+  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
+  const project = await resProject.json()
+  const testimonials = await resTestimonials.json()
 
-  return { props: { project, testimonials: testimonialsData }}
+  return { props: { project, testimonials }}
 
 }
 
 export const getStaticPaths = async () => {
 
-  const res = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=100`)
-  const projects = await res.json()
+  const resProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=100`)
+  const projects = await resProjects.json()
 
   const paths = projects.map((project) => ({
     params: { slug: project.slug },

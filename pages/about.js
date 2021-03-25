@@ -6,12 +6,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '@components/Testimonials'
 import ProjectCard from '@components/ProjectCard'
 
-const About = ({about, projects, testimonials}) => {
+const About = ({aboutData, lastProjects, testimonials}) => {
   return (
     <>
       <Head>
-        {about[0].title.rendered && 
-          <title>{about[0].title.rendered} - Lucian-DEV</title>
+        {aboutData[0].title.rendered && 
+          <title>{aboutData[0].title.rendered} - Lucian-DEV</title>
         } 
       </Head>
       <motion.section className={stylesLayout.mainSection}
@@ -28,8 +28,8 @@ const About = ({about, projects, testimonials}) => {
               <p>I am a Front-End Developer based in Bucharest, Romania.</p>
             </div>
             <div className={stylesAbout.content}>
-              {about.map(item => (
-                <div className={stylesAbout.info} key={item.id} dangerouslySetInnerHTML={{__html: item.acf.about_text}}></div>
+              {aboutData.map(about => (
+                <div className={stylesAbout.info} key={about.id} dangerouslySetInnerHTML={{__html: about.acf.about_text}}></div>
               ))}
             </div>
           </div>
@@ -38,7 +38,7 @@ const About = ({about, projects, testimonials}) => {
               <h2>Last <span>projects...</span></h2>
             </div>
             <div className={stylesLayout.projectsGrid}>
-              {projects.map(project => (
+              {lastProjects.map(project => (
                 <ProjectCard
                   key={project.id}
                   item={project}
@@ -81,17 +81,17 @@ export default About
 
 export const getStaticProps = async () => {
 
-  const res = await fetch(`${process.env.WP_API_URL}/pages/?slug=about`)
-  const res2 = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
-  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
+  const resAbout = await fetch(`${process.env.WP_API_URL}/pages/?slug=about`)
+  const resLastProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
+  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
 
-  const data = await res.json()
-  const lastProjects = await res2.json()
-  const testimonialsData = await testimonials.json()
+  const aboutData = await resAbout.json()
+  const lastProjects = await resLastProjects.json()
+  const testimonials = await resTestimonials.json()
   
 
   return {
-    props: {about: data, projects: lastProjects, testimonials: testimonialsData}
+    props: {aboutData, lastProjects, testimonials}
   }
 
 }

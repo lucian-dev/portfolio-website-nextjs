@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import ProjectCard from '@components/ProjectCard'
 import Testimonials from '@components/Testimonials'
 
-const Home = ({home, projects, testimonials}) => {
+const Home = ({homeData, lastProjects, testimonials}) => {
 
   return (
       <motion.section className={stylesLayout.mainSection}
@@ -17,18 +17,18 @@ const Home = ({home, projects, testimonials}) => {
       >
         <div className={stylesLayout.displayContent}>
           <div className={stylesLayout.container}>
-            {home.map(item => (
-              <div className={stylesHome.content} key={item.id}>
+            {homeData.map(home => (
+              <div className={stylesHome.content} key={home.id}>
                 <div className={stylesHome.info}>
-                  <h1 dangerouslySetInnerHTML={{__html: item.acf.hero_brief.title}}></h1>
-                  <div dangerouslySetInnerHTML={{__html: item.acf.hero_brief.sub_title}}></div>
+                  <h1 dangerouslySetInnerHTML={{__html: home.acf.hero_brief.title}}></h1>
+                  <div dangerouslySetInnerHTML={{__html: home.acf.hero_brief.sub_title}}></div>
                   <Link href="/about">
                     <a className="btnS">...more about me</a>
                   </Link>
                 </div>
                 <div className={stylesHome.features}>
                   <h3>Your website will be...</h3>
-                  {item.acf.features_loop.map((feature, id) => (
+                  {home.acf.features_loop.map((feature, id) => (
                     <div className={stylesHome.item} key={id}>
                       <span className={stylesHome.icon}>
                         <img src={feature.feature_icon}/>
@@ -44,7 +44,7 @@ const Home = ({home, projects, testimonials}) => {
                 <h2>Last <span>projects...</span></h2>
               </div>
               <div className={stylesLayout.projectsGrid}>
-                {projects.map(project => (
+                {lastProjects.map(project => (
                   <ProjectCard
                     key={project.id}
                     item={project}
@@ -86,16 +86,16 @@ export default Home
 
 export const getStaticProps = async () => {
 
-  const res = await fetch(`${process.env.WP_API_URL}/pages/?slug=home`)
-  const res2 = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
-  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
+  const resHome = await fetch(`${process.env.WP_API_URL}/pages/?slug=home`)
+  const resLastProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
+  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
 
-  const data = await res.json()
-  const lastProjects = await res2.json()
-  const testimonialsData = await testimonials.json()
+  const homeData = await resHome.json()
+  const lastProjects = await resLastProjects.json()
+  const testimonials = await resTestimonials.json()
 
   return {
-    props: {home: data, projects: lastProjects, testimonials: testimonialsData}
+    props: {homeData, lastProjects, testimonials}
   }
 
 }

@@ -69,13 +69,13 @@ export default Projects
 
 export const getStaticProps = async () => {
 
-  const res = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=100`)
-  const testimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
-  const data = await res.json()
-  const testimonialsData = await testimonials.json()
+  const resProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=100`)
+  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
+  const projects = await resProjects.json()
+  const testimonials = await resTestimonials.json()
 
   return {
-    props: {projects: data, testimonials: testimonialsData}
+    props: {projects, testimonials}
   }
 
 }

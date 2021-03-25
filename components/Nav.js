@@ -10,8 +10,8 @@ const navVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delayChildren: .3,
-      staggerChildren: .5,
+      delayChildren: .2,
+      staggerChildren: .3,
     }
   }
 }
