@@ -1,5 +1,6 @@
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesHome from '@styles/Home.module.scss'
+import { fetchQuery } from '@utils/fetcher'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -86,13 +87,9 @@ export default Home
 
 export const getStaticProps = async () => {
 
-  const resHome = await fetch(`${process.env.WP_API_URL}/pages/?slug=home`)
-  const resLastProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
-  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
-
-  const homeData = await resHome.json()
-  const lastProjects = await resLastProjects.json()
-  const testimonials = await resTestimonials.json()
+  const homeData = await fetchQuery('wp/v2/pages/?slug=home')
+  const lastProjects = await fetchQuery('wp/v2/project?_embed&per_page=2')
+  const testimonials = await fetchQuery('acf/v3/options/options')
 
   return {
     props: {homeData, lastProjects, testimonials}

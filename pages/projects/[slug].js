@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesProject from '@styles/Project.module.scss'
+import { fetchQuery } from '@utils/fetcher'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -88,10 +89,8 @@ const ProjectPage = ({project, testimonials}) => {
 
 export const getStaticProps = async ({params: { slug }}) => {
 
-  const resProject = await fetch(`${process.env.WP_API_URL}/project?_embed&slug=${slug}`)
-  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
-  const project = await resProject.json()
-  const testimonials = await resTestimonials.json()
+  const project = await fetchQuery(`wp/v2/project?_embed&slug=${slug}`)
+  const testimonials = await fetchQuery('acf/v3/options/options')
 
   return { props: { project, testimonials }}
 
@@ -99,8 +98,7 @@ export const getStaticProps = async ({params: { slug }}) => {
 
 export const getStaticPaths = async () => {
 
-  const resProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=100`)
-  const projects = await resProjects.json()
+  const projects = await fetchQuery('wp/v2/project?_embed&per_page=100')
 
   const paths = projects.map((project) => ({
     params: { slug: project.slug },

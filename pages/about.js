@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesAbout from '@styles/About.module.scss'
+import { fetchQuery } from '@utils/fetcher'
 import {motion} from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Testimonials from '@components/Testimonials'
@@ -81,14 +82,9 @@ export default About
 
 export const getStaticProps = async () => {
 
-  const resAbout = await fetch(`${process.env.WP_API_URL}/pages/?slug=about`)
-  const resLastProjects = await fetch(`${process.env.WP_API_URL}/project?_embed&per_page=2`)
-  const resTestimonials = await fetch(`${process.env.WP_ACF_API_URL}/options/options`)
-
-  const aboutData = await resAbout.json()
-  const lastProjects = await resLastProjects.json()
-  const testimonials = await resTestimonials.json()
-  
+  const aboutData = await fetchQuery('wp/v2/pages/?slug=about')
+  const lastProjects = await fetchQuery('wp/v2/project?_embed&per_page=2')
+  const testimonials = await fetchQuery('acf/v3/options/options')
 
   return {
     props: {aboutData, lastProjects, testimonials}
