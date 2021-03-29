@@ -1,13 +1,34 @@
 import stylesLayout from '@styles/Layout.module.scss'
 import stylesHome from '@styles/Home.module.scss'
+import 'react-toastify/dist/ReactToastify.css'
 import { fetchQuery } from '@utils/fetcher'
 import Link from 'next/link'
+import { useEffect } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ProjectCard from '@components/ProjectCard'
 import Testimonials from '@components/Testimonials'
 
 const Home = ({homeData, lastProjects, testimonials}) => {
+
+  const MsgToast = () => (
+    <div className={stylesHome.toast}>
+      <p>Let's build something great!</p>
+      <a href="https://lucian-dev.netlify.app/contact" rel="noreferrer noopener">Contact me!</a>
+    </div>
+  )
+
+  useEffect(() => {
+    toast.dark(<MsgToast/>, {
+      position: "top-right",
+      delay: 2000,
+      autoClose: 5000,
+      hideProgressBar: false,
+      pauseOnHover: true,
+      progressClassName: "yabu-toast"
+    })
+  }, [])
 
   return (
       <motion.section className={stylesLayout.mainSection}
@@ -16,6 +37,7 @@ const Home = ({homeData, lastProjects, testimonials}) => {
         transition={{type: "spring", bounce: 0.6, duration: 0.5, damping: 14}}
         exit={{opacity: 0}}
       >
+        <ToastContainer/>
         <div className={stylesLayout.displayContent}>
           <div className={stylesLayout.container}>
             {homeData.map(home => (

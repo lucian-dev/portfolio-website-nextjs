@@ -1,5 +1,16 @@
 @import "./variables.scss";
 
+.toast {
+  a {
+    color: $secondaryColorLt;
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+  }
+  a:hover {
+    color: $primaryColorLt;
+  }
+}
+
 .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr));
