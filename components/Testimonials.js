@@ -1,5 +1,6 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import styles from '@styles/Testimonials.module.scss'
+import Image from 'next/image'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -7,7 +8,11 @@ const Testimonials = ({item}) => {
   return (
     <div className={styles.testimonialWrapper}>
       <div className={styles.authorImg}>
-        <img src={item.author_image}></img>
+        <Image 
+          src={item.author_image}
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
       <div className={styles.authorTest}>
         <p>{item.testimonial}</p>
