@@ -3,7 +3,6 @@ import stylesHome from '@styles/Home.module.scss'
 import 'react-toastify/dist/ReactToastify.css'
 import { fetchQuery } from '@utils/fetcher'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useEffect } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { motion } from 'framer-motion'
@@ -55,11 +54,7 @@ const Home = ({homeData, lastProjects, testimonials}) => {
                   {home.acf.features_loop.map((feature, id) => (
                     <div className={stylesHome.item} key={id}>
                       <span className={stylesHome.icon}>
-                        <Image 
-                          src={feature.feature_icon}
-                          width={25}
-                          height={25}
-                        />
+                        <img src={feature.feature_icon} />
                       </span>
                       <h4>{feature.feature_title}</h4>
                     </div>
