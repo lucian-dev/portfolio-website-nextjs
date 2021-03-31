@@ -15,7 +15,7 @@ const Testimonials = ({item}) => {
       <div className={styles.authorInfo}>
         <h5>{item.author_name}</h5>
         <i>-</i>
-        <a href={item.author_info}>{item.author_info}</a>
+        <a href={item.author_info} target="_blank" rel="noreferrer noopener">{item.author_info}</a>
       </div>
     </div>
   )
