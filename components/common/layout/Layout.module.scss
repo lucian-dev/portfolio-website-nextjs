@@ -1,4 +1,4 @@
-@import "/styles/variables.scss";
+@import "@styles/variables.scss";
 
 .mainWrapper {
   overflow: hidden;
@@ -42,17 +42,6 @@
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-}
-
-.testimonials,
-.lastProjects {
-  margin-top: 50px;
-}
-
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(415px, 100%), 1fr));
-  gap: 25px;
 }
 
 .page404 {

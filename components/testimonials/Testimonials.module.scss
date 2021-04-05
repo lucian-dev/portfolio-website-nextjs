@@ -1,4 +1,8 @@
-@import "../styles/variables.scss";
+@import "@styles/variables.scss";
+
+.testimonials {
+  margin-top: 50px;
+}
 
 .testimonialWrapper {
   background: $backgroundColorGrad;

@@ -2,7 +2,7 @@ import '@styles/globals.scss'
 import '@styles/nprogress.scss'
 import { AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
-import Layout from '@components/Layout'
+import Layout from '@components/common/layout/Layout'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 
