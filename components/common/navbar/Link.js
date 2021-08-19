@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '@components/common/navbar/Nav.module.scss'
 
-const ActiveLink = ({ href, children }) => {
+const ActiveLink = ({href, children}) => {
   const router = useRouter()
 
   let className = children.props.className || '';
