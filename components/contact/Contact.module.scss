@@ -1,109 +1,53 @@
 @import "@styles/variables.scss";
 
-.formRow {
+.contactRow {
   display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-
-.formCol {
-  width: 100%;
-  &:nth-child(1) {
-    padding-right: 0px;
-  }
-  &:nth-child(2) {
-    padding-left: 0px;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px 0;
+  .social {
+    margin-bottom: 50px;
   }
   @media (min-width: 550px) {
-    width: 50%;
-    &:nth-child(1) {
-      padding-right: 15px;
-    }
-    &:nth-child(2) {
-      padding-left: 15px;
+    flex-direction: row;
+    .social {
+      margin-bottom: 0;
     }
   }
 }
 
-.textarea,
-.select,
-.input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="submit"]) {
-  appearance: none;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid $secondaryColorLt;
-  padding: 10px 20px;
-  margin-bottom: 15px;
-  color: $primaryColorLt;
-  font-size: $sm-fontSize;
-  line-height: 1;
-  font-family: $poppins;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-  background-color: $bodyColor;
-  box-shadow: $boxShadow;
-  &:focus,
-  &:hover {
-    background-color: transparent;
-    border-bottom: 1px solid $primaryColorLt;
-    box-shadow: $boxShadowAlt;
+.social,
+.email {
+  width: 50%;
+  text-align: center;
+  h5 {
+    margin: 15px auto;
   }
-  ::placeholder {
-    color: $secondaryColorLt;
-  }
-}
-
-.select {
-  padding: 13px 20px;
-}
-
-.textarea {
-  min-height: 200px;
-  resize: none;
-}
-
-.submit {
-  position: relative;
-  outline: none;
-  appearance: none;
-  border: 0;
-  background-color: transparent;
-  font-family: $poppins;
-  font-size: $l-fontSize;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: $secondaryColorLt;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    border-bottom: 2px solid $secondaryColorLt;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  &::after {
-    content: ">";
+  a {
     display: inline-block;
-    font-size: $l-fontSize;
-    line-height: 1;
-    margin-left: 5px;
-    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  &:hover {
-    color: $primaryColorLt;
-    &::before {
-      transform-origin: left;
-      transform: scaleX(0);
-    }
-    &::after {
-      transform: rotateX(360deg);
+    color: $secondaryColorLt;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      color: $primaryColorLt;
     }
   }
+  a:first-of-type svg {
+    margin-right: 10px;
+  }
+  svg {
+    display: block;
+    width: 25px;
+    height: 25px;
+    fill: $secondaryColorLt;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      fill: $primaryColorLt;
+    }
+  }
+}
+
+.icon {
+  display: block;
+  width: 25px;
+  margin: auto;
 }

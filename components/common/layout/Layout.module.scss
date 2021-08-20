@@ -44,17 +44,10 @@
   padding-right: 15px;
 }
 
-.page404,
-.thankYou {
+.page404 {
   height: calc(100vh - 150px);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.tyContent {
-  p {
-    margin: 25px 0;
-  }
 }

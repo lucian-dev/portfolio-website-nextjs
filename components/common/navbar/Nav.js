@@ -34,7 +34,11 @@ const Nav = () => {
     <>
       <nav className={`${styles.nav} ${burger ? `${styles.activeBurger}` : ''}`}>
         <div className={styles.logo}>
-          <img src="../th_lucian.jpg" alt="Lucian-DEV Frontend Developer" />
+          <Link href="/">
+            <a>
+              <img src="../th_lucian.jpg" alt="Lucian-DEV Frontend Developer" />
+            </a>
+          </Link>
           <h3>Lucian <span>DEV</span></h3>
         </div>
         <ul className={styles.navigation}>
