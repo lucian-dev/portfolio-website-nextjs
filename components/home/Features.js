@@ -1,4 +1,4 @@
-import styles from '@components/home/Home.module.scss'
+import styles from './Home.module.scss'
 
 const Features = ({features}) => {
   return (

@@ -1,4 +1,4 @@
-import styles from '@components/about/About.module.scss'
+import styles from './About.module.scss'
 
 const AboutContent = ({aboutData}) => {
   return (

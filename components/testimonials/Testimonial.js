@@ -1,4 +1,4 @@
-import styles from '@components/testimonials/Testimonials.module.scss'
+import styles from './Testimonials.module.scss'
 
 const Testimonial = ({testimonial}) => {
   return (

@@ -1,4 +1,4 @@
-import styles from '@components/home/Home.module.scss'
+import styles from './Home.module.scss'
 import Link from 'next/link'
 import Features from '@components/home/Features'
 

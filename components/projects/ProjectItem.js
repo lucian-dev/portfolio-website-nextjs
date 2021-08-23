@@ -1,4 +1,4 @@
-import styles from '@components/projects/Projects.module.scss'
+import styles from './Projects.module.scss'
 import Link from 'next/link'
 
 const ProjectItem = ({project}) => {

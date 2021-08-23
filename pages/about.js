@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '@components/common/layout/Layout.module.scss'
 import { fetchQuery } from '@utils/fetcher'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import AboutContent from '@components/about/AboutContent'
 import LastProjects from '@components/projects/LastProjects'
 import Testimonials from '@components/testimonials/Testimonials'

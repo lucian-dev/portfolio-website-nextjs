@@ -1,4 +1,4 @@
-import styles from '@components/common/navbar/Nav.module.scss'
+import styles from './Nav.module.scss'
 import Link from '@components/common/navbar/Link'
 import { useState } from 'react'
 import { Divide as Hamburger } from 'hamburger-react'
