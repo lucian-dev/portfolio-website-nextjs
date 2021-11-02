@@ -1,6 +1,6 @@
-import styles from './Home.module.scss'
+import styles from "./Home.module.scss";
 
-const Features = ({features}) => {
+const Features = ({ features }) => {
   return (
     <div className={styles.features}>
       <h3>Your website will be...</h3>
@@ -13,7 +13,7 @@ const Features = ({features}) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

@@ -1,15 +1,17 @@
-import SwiperCore, { Navigation, Pagination } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import styles from './Testimonials.module.scss'
-import Testimonial from '@components/testimonials/Testimonial'
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./Testimonials.module.scss";
+import Testimonial from "@components/testimonials/Testimonial";
 
-SwiperCore.use([Navigation, Pagination])
+SwiperCore.use([Navigation, Pagination]);
 
-const Testimonials = ({testimonials}) => {
+const Testimonials = ({ testimonials }) => {
   return (
-    <div  className={styles.testimonials}>
+    <div className={styles.testimonials}>
       <div className="mainTitle">
-        <h2>They <span>say...</span></h2>
+        <h2>
+          They <span>say...</span>
+        </h2>
       </div>
       <Swiper
         slidesPerView={1}
@@ -18,20 +20,18 @@ const Testimonials = ({testimonials}) => {
         spaceBetween={50}
         breakpoints={{
           768: {
-            slidesPerView: 2
-          }
+            slidesPerView: 2,
+          },
         }}
       >
         {testimonials.acf.loop_testimonials.map((testimonial, id) => (
           <SwiperSlide key={id}>
-            <Testimonial
-              testimonial={testimonial}
-            />
+            <Testimonial testimonial={testimonial} />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;
