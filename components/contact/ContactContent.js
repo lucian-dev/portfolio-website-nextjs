@@ -54,7 +54,7 @@ const ContactContent = () => {
             </svg>
           </span>
           <h5>Email</h5>
-          <a href="mailto:contact@lucian-yabu.dev">contact@lucian-yabu.dev</a>
+          <a href="mailto:lucian.dev13@gmail.com">lucian.dev13@gmail.com</a>
         </div>
       </div>
     </div>
