@@ -1,12 +1,10 @@
-@import "@styles/variables.scss";
-
 .testimonials {
   margin-top: 50px;
 }
 
 .testimonialWrapper {
-  background: $backgroundColorGrad;
-  box-shadow: $boxShadow;
+  background: var(--bgColorGradient);
+  box-shadow: var(--boxShadow);
   padding: 15px 0;
   margin: 50px 0;
   border-radius: 10px;
@@ -47,12 +45,12 @@
     padding: 0 5px;
   }
   a {
-    color: $secondaryColorLt;
-    font-size: $sm-fontSize;
+    color: var(--secondaryColor);
+    font-size: var(--smSize);
     line-height: 1;
     transition: all 0.3s ease-in-out;
   }
   a:hover {
-    color: $primaryColorLt;
+    color: var(--primaryColor);
   }
 }

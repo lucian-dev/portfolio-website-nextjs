@@ -1,14 +1,12 @@
-@import "@styles/variables.scss";
-
 .mainFooter {
   padding: 15px;
   margin: 0 5px 25px 5px;
   text-align: center;
-  font-size: $sm-fontSize;
+  font-size: var(--smSize);
   line-height: 1;
   border-radius: 5px;
-  background-color: $wrapperColor;
-  box-shadow: $boxShadowAlt;
+  background-color: var(--wrapperColor);
+  box-shadow: var(--boxShadowAlt);
   @media (min-width: 550px) {
     margin: 0 15px 15px 15px;
   }

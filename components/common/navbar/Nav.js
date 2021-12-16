@@ -35,7 +35,7 @@ const Nav = () => {
         className={`${styles.nav} ${burger ? `${styles.activeBurger}` : ""}`}
       >
         <div className={styles.logo}>
-          <img src="../th_lucian.jpg" alt="Lucian-DEV Frontend Developer" />
+          <img src="/th_lucian.jpg" alt="Lucian-DEV Frontend Developer" />
           <h3>
             Lucian <span>DEV</span>
           </h3>

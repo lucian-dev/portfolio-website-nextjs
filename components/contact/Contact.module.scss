@@ -1,5 +1,3 @@
-@import "@styles/variables.scss";
-
 .contactRow {
   display: flex;
   align-items: center;
@@ -25,10 +23,10 @@
   }
   a {
     display: inline-block;
-    color: $secondaryColorLt;
+    color: var(--secondaryColor);
     transition: all 0.4s ease-in-out;
     &:hover {
-      color: $primaryColorLt;
+      color: var(--primaryColor);
     }
   }
   a:first-of-type svg {
@@ -38,10 +36,10 @@
     display: block;
     width: 25px;
     height: 25px;
-    fill: $secondaryColorLt;
+    fill: var(--secondaryColor);
     transition: all 0.3s ease-in-out;
     &:hover {
-      fill: $primaryColorLt;
+      fill: var(--primaryColor);
     }
   }
 }

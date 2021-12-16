@@ -1,5 +1,3 @@
-@import "@styles/variables.scss";
-
 .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr));
@@ -10,7 +8,7 @@
 .info {
   span {
     display: block;
-    color: $secondaryColorLt;
+    color: var(--secondaryColor);
   }
   p {
     margin: 25px 0;
@@ -21,8 +19,8 @@
 .features {
   justify-self: center;
   padding: 15px 0;
-  background: $backgroundColorGrad;
-  box-shadow: $boxShadow;
+  background: var(--bgColorGradient);
+  box-shadow: var(--boxShadow);
   border-radius: 10px;
   @media (min-width: 550px) {
     padding: 15px;
@@ -35,7 +33,7 @@
     align-items: center;
   }
   .item h4 {
-    color: $secondaryColorLt;
+    color: var(--secondaryColor);
   }
   .item:not(:last-of-type) {
     margin-bottom: 15px;
@@ -45,8 +43,8 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    box-shadow: $boxShadowAlt;
-    background-color: $secondaryColorLt;
+    box-shadow: var(--boxShadowAlt);
+    background-color: var(--secondaryColor);
     margin-right: 15px;
     display: flex;
     align-items: center;

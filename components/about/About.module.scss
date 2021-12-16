@@ -1,5 +1,3 @@
-@import "@styles/variables.scss";
-
 .content {
   .info {
     column-count: 1;
@@ -9,12 +7,12 @@
     }
   }
   a {
-    color: $secondaryColorLt;
+    color: var(--secondaryColor);
     text-decoration: underline;
     transition: all 0.3s ease-in-out;
   }
   a:hover {
-    color: $primaryColorLt;
+    color: var(--primaryColor);
   }
   p:not(:last-of-type) {
     margin-bottom: 25px;

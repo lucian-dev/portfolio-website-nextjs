@@ -1,5 +1,3 @@
-@import "@styles/variables.scss";
-
 .nav {
   position: fixed;
   left: 15px;
@@ -8,9 +6,9 @@
   width: 250px;
   height: calc(100vh - 30px);
   padding: 15px;
-  background-color: $wrapperColor;
+  background-color: var(--wrapperColor);
   border-radius: 10px;
-  box-shadow: $boxShadowAlt;
+  box-shadow: var(--boxShadowAlt);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,8 +26,8 @@
   }
   span {
     display: block;
-    font-size: $l-fontSize;
-    color: $secondaryColorLt;
+    font-size: var(--lSize);
+    color: var(--secondaryColor);
   }
   img {
     display: block;
@@ -39,7 +37,7 @@
     margin: 0 auto;
     object-fit: cover;
     overflow: hidden;
-    border: 2px solid $secondaryColorLt;
+    border: 2px solid var(--secondaryColor);
   }
 }
 
@@ -53,9 +51,9 @@
   a {
     position: relative;
     display: inline-block;
-    font-family: $poppins;
-    font-size: $sm-fontSize;
-    color: $secondaryColorLt;
+    font-family: var(--poppins);
+    font-size: var(--smSize);
+    color: var(--secondaryColor);
     line-height: 1;
     transition: all 0.3s ease-in-out;
   }
@@ -65,14 +63,14 @@
     bottom: -5px;
     left: 0;
     width: 100%;
-    border-bottom: 1px solid $primaryColorLt;
+    border-bottom: 1px solid var(--primaryColor);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   a:hover,
   a.activeLink {
-    color: $primaryColorLt;
+    color: var(--primaryColor);
     &::after {
       transform-origin: left;
       transform: scaleX(1);
@@ -93,7 +91,7 @@
       width: 20px;
       height: 20px;
       display: block;
-      fill: $secondaryColorLt;
+      fill: var(--secondaryColor);
       transition: all 0.3s ease-in-out;
     }
   }
@@ -102,7 +100,7 @@
   }
   a:hover {
     svg {
-      fill: $primaryColorLt;
+      fill: var(--primaryColor);
     }
   }
 }
@@ -112,11 +110,11 @@
   top: 0;
   right: -65px;
   z-index: 11111;
-  color: $secondaryColorLt;
+  color: var(--secondaryColor);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   &:hover {
-    color: $primaryColorLt;
+    color: var(--primaryColor);
   }
   @media (min-width: 1200px) {
     display: none;
@@ -125,9 +123,9 @@
 
 .activeBurger {
   .burger {
-    color: $primaryColorLt;
+    color: var(--primaryColor);
     &:hover {
-      color: $secondaryColorLt;
+      color: var(--secondaryColor);
     }
   }
 }
@@ -137,7 +135,7 @@
   width: 100%;
   height: 100vh;
   z-index: 98;
-  background: transparentize($color: $wrapperColor, $amount: 0.2);
+  background: transparentize(#1e1e28, $amount: 0.2);
   transition: all 0.3s ease-in-out;
 }
 
@@ -147,8 +145,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $wrapperColor;
-  box-shadow: $boxShadowAlt;
+  background-color: var(--wrapperColor);
+  box-shadow: var(--boxShadowAlt);
   @media (min-width: 550px) {
     max-width: 300px;
   }
@@ -161,9 +159,9 @@
   }
   a {
     display: inline-block;
-    font-family: $poppins;
-    font-size: $h4-fontSize;
-    color: $secondaryColorLt;
+    font-family: var(--poppins);
+    font-size: var(--h4Size);
+    color: var(--secondaryColor);
     line-height: 1;
     transition: all 0.3s ease-in-out;
   }
@@ -172,13 +170,13 @@
     display: block;
     width: 0;
     height: 1px;
-    background-color: $primaryColorLt;
+    background-color: var(--primaryColor);
     margin: 5px auto 0;
     transition: all 0.3s ease-in-out;
   }
   a:hover,
   a.activeLink {
-    color: $primaryColorLt;
+    color: var(--primaryColor);
     &::after {
       width: 25px;
     }
