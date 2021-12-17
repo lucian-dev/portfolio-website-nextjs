@@ -1,8 +1,31 @@
 import styles from "./Nav.module.scss";
-import Link from "./Link";
+import ActiveLink from "./ActiveLink";
 import { useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion } from "framer-motion";
+
+const menu = [
+  {
+    id: 1,
+    page: "Home",
+    path: "/",
+  },
+  {
+    id: 2,
+    page: "About",
+    path: "/about",
+  },
+  {
+    id: 3,
+    page: "Projects",
+    path: "/projects",
+  },
+  {
+    id: 4,
+    page: "Contact",
+    path: "/contact",
+  },
+];
 
 const navVariants = {
   hidden: { opacity: 0, scale: 0 },
@@ -41,26 +64,13 @@ const Nav = () => {
           </h3>
         </div>
         <ul className={styles.navigation}>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects">
-              <a>Projects</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact">
-              <a>Contact</a>
-            </Link>
-          </li>
+          {menu.map((item) => (
+            <li key={item.id}>
+              <ActiveLink href={item.path}>
+                <a>{item.page}</a>
+              </ActiveLink>
+            </li>
+          ))}
         </ul>
         <div className={styles.social}>
           <a
@@ -121,26 +131,13 @@ const Nav = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <motion.li variants={linkVariants}>
-                  <Link href="/">
-                    <a onClick={handleClick}>Home</a>
-                  </Link>
-                </motion.li>
-                <motion.li variants={linkVariants}>
-                  <Link href="/about">
-                    <a onClick={handleClick}>About</a>
-                  </Link>
-                </motion.li>
-                <motion.li variants={linkVariants}>
-                  <Link href="/projects">
-                    <a onClick={handleClick}>Projects</a>
-                  </Link>
-                </motion.li>
-                <motion.li variants={linkVariants}>
-                  <Link href="/contact">
-                    <a onClick={handleClick}>Contact</a>
-                  </Link>
-                </motion.li>
+                {menu.map((item) => (
+                  <motion.li variants={linkVariants} key={item.id}>
+                    <ActiveLink href={item.path}>
+                      <a onClick={handleClick}>{item.page}</a>
+                    </ActiveLink>
+                  </motion.li>
+                ))}
               </motion.ul>
             </motion.div>
           </motion.div>
