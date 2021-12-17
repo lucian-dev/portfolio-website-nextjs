@@ -7,7 +7,7 @@ const AboutContent = ({ aboutData }) => {
         <h1>
           About <span>Me</span>
         </h1>
-        <p>I am a Front-End Developer based in Bucharest, Romania.</p>
+        <p>{aboutData[0].acf.main_title_about.sub_title}</p>
       </div>
       <div className={styles.content}>
         {aboutData.map((about) => (

@@ -6,11 +6,11 @@ import ContactContent from "@components/contact/ContactContent";
 import LastProjects from "@components/projects/LastProjects";
 import Testimonials from "@components/testimonials/Testimonials";
 
-const Contact = ({ lastProjects, testimonials }) => {
+const Contact = ({ lastProjects, testimonials, contact }) => {
   return (
     <>
       <Head>
-        <title>Contact - Lucian-DEV</title>
+        <title>{contact[0].title.rendered} - Lucian-DEV</title>
       </Head>
       <motion.section
         className={styles.mainSection}
@@ -21,7 +21,7 @@ const Contact = ({ lastProjects, testimonials }) => {
       >
         <div className={styles.displayContent}>
           <div className={styles.container}>
-            <ContactContent />
+            <ContactContent contact={contact} />
             <LastProjects lastProjects={lastProjects} />
             <Testimonials testimonials={testimonials} />
           </div>
@@ -34,10 +34,11 @@ const Contact = ({ lastProjects, testimonials }) => {
 export default Contact;
 
 export const getStaticProps = async () => {
+  const contact = await fetchQuery("wp/v2/pages/?slug=contact");
   const lastProjects = await fetchQuery("wp/v2/project?_embed&per_page=2");
   const testimonials = await fetchQuery("acf/v3/options/options");
 
   return {
-    props: { lastProjects, testimonials },
+    props: { lastProjects, testimonials, contact },
   };
 };

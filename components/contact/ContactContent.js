@@ -1,11 +1,11 @@
 import styles from "./Contact.module.scss";
 
-const ContactContent = () => {
+const ContactContent = ({ contact }) => {
   return (
     <div className={styles.contact}>
       <div className="mainTitle textCenter">
-        <h1>Contact</h1>
-        <p>What project do you have in mind? Let's build toghether!</p>
+        <h1>{contact[0].title.rendered}</h1>
+        <p>{contact[0].acf.main_title_contact.sub_title}</p>
       </div>
       <div className={styles.contactRow}>
         <div className={styles.social}>
@@ -54,7 +54,7 @@ const ContactContent = () => {
             </svg>
           </span>
           <h5>Email</h5>
-          <a href="mailto:lucian.dev13@gmail.com">lucian.dev13@gmail.com</a>
+          <a href={`mailto:${contact[0].acf.email}`}>{contact[0].acf.email}</a>
         </div>
       </div>
     </div>
