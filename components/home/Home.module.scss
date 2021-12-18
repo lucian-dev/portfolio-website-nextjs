@@ -2,10 +2,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr));
   align-items: center;
-  gap: 25px;
+  gap: 50px;
 }
 
 .info {
+  max-width: 600px;
   span {
     display: block;
     color: var(--secondaryColor);
