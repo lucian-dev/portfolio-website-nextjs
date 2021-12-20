@@ -1,6 +1,6 @@
-import styles from "./Layout.module.scss";
-import Footer from "@components/common/footer/Footer";
-import Nav from "@components/common/navbar/Nav";
+import Footer from '@components/common/footer/Footer';
+import Nav from '@components/common/navbar/Nav';
+import styles from './Layout.module.scss';
 
 const Layout = ({ children }) => {
   return (

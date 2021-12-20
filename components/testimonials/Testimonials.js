@@ -1,7 +1,7 @@
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./Testimonials.module.scss";
-import Testimonial from "@components/testimonials/Testimonial";
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Testimonial from '@components/testimonials/Testimonial';
+import styles from './Testimonials.module.scss';
 
 SwiperCore.use([Navigation, Pagination]);
 

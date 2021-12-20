@@ -1,6 +1,6 @@
-import styles from "./Home.module.scss";
-import Link from "next/link";
-import Features from "@components/home/Features";
+import Link from 'next/link';
+import Features from '@components/home/Features';
+import styles from './Home.module.scss';
 
 const HomeContent = ({ homeData }) => {
   return (
@@ -8,9 +8,7 @@ const HomeContent = ({ homeData }) => {
       {homeData.map((home) => (
         <div className={styles.content} key={home.id}>
           <div className={styles.info}>
-            <h1
-              dangerouslySetInnerHTML={{ __html: home.acf.hero_brief.title }}
-            ></h1>
+            <h1 dangerouslySetInnerHTML={{ __html: home.acf.hero_brief.title }}></h1>
             <div
               dangerouslySetInnerHTML={{
                 __html: home.acf.hero_brief.sub_title,

@@ -1,5 +1,5 @@
-import styles from "./Projects.module.scss";
-import ProjectCard from "@components/projects/ProjectCard";
+import ProjectCard from '@components/projects/ProjectCard';
+import styles from './Projects.module.scss';
 
 const LastProjects = ({ lastProjects }) => {
   return (
