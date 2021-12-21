@@ -23,9 +23,11 @@ const ProjectItem = ({ project }) => {
                   <p>{item.acf.collab}</p>
                 </>
               )}
-              <a href={item.acf.project_url} className={`btn ${styles.linkProject}`} target="_blank" rel="noreferrer">
-                Visit website
-              </a>
+              <Link href={item.acf.project_url}>
+                <a className={`btn ${styles.linkProject}`} target="_blank" rel="noreferrer">
+                  Visit website
+                </a>
+              </Link>
               <div className="btnBottom">
                 <Link href="/projects">
                   <a className="btnS">...back to All projects</a>

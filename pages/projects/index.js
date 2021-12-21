@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import { fetchQuery } from '@utils/fetcher';
 import { motion } from 'framer-motion';
@@ -5,7 +6,7 @@ import ProjectsList from '@components/projects/ProjectsList';
 import Testimonials from '@components/testimonials/Testimonials';
 import styles from '@components/common/layout/Layout.module.scss';
 
-const Projects = ({ projects, testimonials }) => {
+const Projects = ({ projects, testimonials, categories }) => {
   return (
     <>
       <Head>
@@ -20,7 +21,7 @@ const Projects = ({ projects, testimonials }) => {
       >
         <div className={styles.displayContent}>
           <div className={styles.container}>
-            <ProjectsList projects={projects} />
+            <ProjectsList projects={projects} categories={categories} />
             <Testimonials testimonials={testimonials} />
           </div>
         </div>
@@ -32,10 +33,11 @@ const Projects = ({ projects, testimonials }) => {
 export default Projects;
 
 export const getStaticProps = async () => {
+  const categories = await fetchQuery('wp/v2/project_category');
   const projects = await fetchQuery('wp/v2/project?_embed&per_page=100');
   const testimonials = await fetchQuery('acf/v3/options/options');
 
   return {
-    props: { projects, testimonials },
+    props: { projects, testimonials, categories },
   };
 };

@@ -29,7 +29,7 @@ export default Home;
 
 export const getStaticProps = async () => {
   const homeData = await fetchQuery('wp/v2/pages/?slug=home');
-  const lastProjects = await fetchQuery('wp/v2/project?_embed&per_page=2');
+  const lastProjects = await fetchQuery('wp/v2/project?_embed&tag=15');
   const testimonials = await fetchQuery('acf/v3/options/options');
 
   return {

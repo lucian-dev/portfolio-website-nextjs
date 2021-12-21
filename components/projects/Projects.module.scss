@@ -1,4 +1,4 @@
-@import "@styles/animations.scss";
+@import '@styles/animations.scss';
 
 // Last Projects Section
 .lastProjects {
@@ -9,6 +9,19 @@
 .lpWrapper {
   display: flex;
   justify-content: center;
+}
+
+// filters
+.filterProducts {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  li {
+    padding: 0 10px;
+  }
+  a {
+    cursor: pointer;
+  }
 }
 
 // Projects Card Grid
@@ -128,7 +141,7 @@
 
 // Project Page
 .project h1::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 25px;
   height: 2px;
@@ -173,47 +186,11 @@
   width: 525px;
   height: 400px;
   right: 0;
-  transform: matrix3d(
-      0.9,
-      0.12,
-      0.34,
-      -0.0002,
-      0,
-      1,
-      0,
-      0,
-      -0.34,
-      0,
-      0.94,
-      0,
-      1,
-      0,
-      10,
-      1
-    )
-    translate(0, -50%);
+  transform: matrix3d(0.9, 0.12, 0.34, -0.0002, 0, 1, 0, 0, -0.34, 0, 0.94, 0, 1, 0, 10, 1) translate(0, -50%);
   box-shadow: var(--boxShadowAlt);
   z-index: 1;
   @media (min-width: 600px) {
-    transform: matrix3d(
-        0.9,
-        0.12,
-        0.34,
-        -0.0002,
-        0,
-        1,
-        0,
-        0,
-        -0.34,
-        0,
-        0.94,
-        0,
-        1,
-        0,
-        10,
-        1
-      )
-      translate(-10px, -50%);
+    transform: matrix3d(0.9, 0.12, 0.34, -0.0002, 0, 1, 0, 0, -0.34, 0, 0.94, 0, 1, 0, 10, 1) translate(-10px, -50%);
     height: 650px;
   }
 }

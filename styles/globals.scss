@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@400;500;700&display=swap");
-@import "swiper/swiper.scss";
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@400;500;700&display=swap');
+@import 'swiper/swiper.scss';
 
 :root {
   // Fonts
-  --poppins: "Poppins", sans-serif;
-  --muli: "Mulish", sans-serif;
+  --poppins: 'Poppins', sans-serif;
+  --muli: 'Mulish', sans-serif;
   // Colors
   --bodyColor: #191923;
   --wrapperColor: #1e1e28;
@@ -74,7 +74,7 @@ a.btn {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -3px;
     left: 0;
@@ -100,10 +100,17 @@ a.btn {
   font-weight: 700;
   line-height: 1;
   color: var(--secondaryColor);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
   &:hover {
     color: var(--primaryColor);
   }
+}
+button.isActive {
+  color: var(--primaryColor);
 }
 
 img {
@@ -232,11 +239,11 @@ h5 {
 }
 
 .swiper-button-prev::before {
-  content: "<";
+  content: '<';
 }
 
 .swiper-button-next::before {
-  content: ">";
+  content: '>';
 }
 
 .swiper-button-next.swiper-button-disabled,
